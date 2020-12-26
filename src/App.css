@@ -1,10 +1,11 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.app{
+  font-family: 'Sniglet', cursive;
+  color: rgb(26, 26, 70);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,14 +15,13 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(8, 2, 39);
 }
 
 .App-link {

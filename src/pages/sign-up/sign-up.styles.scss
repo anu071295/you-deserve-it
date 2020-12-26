@@ -1,0 +1,125 @@
+$sub-color: grey;
+$main-color: black;
+
+@mixin shrinkLabel {
+  top: -14px;
+  font-size: 12px;
+  color: $main-color;
+}
+
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .header{
+    font-size: 30px;
+  }
+  .sideHeader{
+    font-size: 20px;
+  }
+}
+
+.group {
+  position: relative;
+  margin: 10px 0;
+  padding-left: 20px;  
+  padding-right: 20px;                                
+  
+
+  .form-input {
+    background: none;
+    background-color: white;
+    color: $sub-color;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid $sub-color;
+    margin: 25px 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus ~ .form-input-label {
+      @include shrinkLabel();
+    }
+  }
+
+  input[type='password'] {
+    letter-spacing: 0.3em;
+  }
+
+  .form-input-label {
+    color: $sub-color;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: 300ms ease all;
+    font-family: 'Barlow Condensed', sans-serif;
+
+    &.shrink {
+      @include shrinkLabel();
+    }
+  }
+}
+.rowGroup{
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+
+.pageAction {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .pageActionLink {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  .pageActionButton {
+    min-width: 165px;
+    width: auto;
+    height: 50px;
+    letter-spacing: 0.5px;
+    line-height: 50px;
+    padding: 0 35px 0 35px;
+    font-size: 15px;
+    background-color: rgb(26, 26, 70);
+    color: white;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+    }
+  
+    &.google-sign-in {
+      background-color: #4285f4;
+      color: white;
+  
+      &:hover {
+        background-color: #357ae8;
+        border: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Sniglet', cursive;
+  
+}
+
+.homepageHeader{
+  font-size: 50px;
+  color: rgb(26, 26, 70);
+}
+
+.options {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .option {
+    padding: 100px 100px;
+    font-size: 20px;
+  }
+}
