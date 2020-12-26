@@ -1,10 +1,12 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import './App.css';
+import './App.scss';
 import HomePage from './pages/homepage/homepage.component';
 import SignIn from './pages/sign-in/sign-in.component';
 import SignUp from './pages/sign-up/sign-up.component';
+import Footer from './components/footer/footer.component';
+import Header from './components/header/header.component';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
@@ -47,11 +49,13 @@ class App extends React.Component {
   render() {
     return (
       <div className = 'app'>
+        <Header currentUser = {this.state.currentUser}/>
           <Switch>
             <Route exact path='/' component={HomePage} />
-            <Route exact path= '/signin' render={(props) => <SignIn currentUser={this.state.currentUser} {...props} /> } />
+            <Route exact path= '/signin' component={SignIn}/>
             <Route exact path='/signup' component={SignUp} />
           </Switch>
+        <Footer/>
     </div>
     );
   }

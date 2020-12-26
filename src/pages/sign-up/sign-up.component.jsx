@@ -60,10 +60,7 @@ class SignUp extends React.Component {
     const { displayName, email, password, confirmPassword } = this.state;
     return (
     <div className='sign-in'>
-    <div className='pageHeader'>
-        <h4 className = 'homepageHeader'>
-            YOU DESERVE IT 
-        </h4>
+    <div className='mainHeader'>
         <h2 className = 'header'>I'm new around here</h2>
         <h2 className = 'sideHeader'>Sign UP</h2>
     </div>

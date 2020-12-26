@@ -1,0 +1,22 @@
+.pageHeader {
+  height:60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  background-color: white;
+
+
+  .signInSignUpLinks {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .link {
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+  }
+}

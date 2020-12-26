@@ -6,6 +6,13 @@
 .app{
   font-family: 'Sniglet', cursive;
   color: rgb(26, 26, 70);
+  background-size: cover;
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+  top:0;
+  
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,8 +21,18 @@
   }
 }
 
+@mixin background($imgpath,$position:0 0,$repeat: no-repeat) {
+  background: {
+      image: url($imgpath);
+      position: $position;
+      repeat: $repeat;
+  }
+}
+.app {
+  @include background('/assets/backgrounImage.JPG');
+}
+
 .App-header {
-  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
