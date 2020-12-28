@@ -1,0 +1,25 @@
+.mainDivCurrentUser{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 100;
+
+    .categoryDiv{
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(193, 205, 236);
+        border: 1px solid rgb(193, 205, 236);
+        padding-left: 30%;
+        padding-right: 30%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        cursor: pointer;
+        -moz-osx-font-smoothing: grayscale;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+        transition: transform 0.25s ease-out;
+    }
+    .categoryDiv:hover {
+        transform: scale(1.05);
+      }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+
 
 import './App.scss';
 import HomePage from './pages/homepage/homepage.component';
@@ -7,6 +8,7 @@ import SignIn from './pages/sign-in/sign-in.component';
 import SignUp from './pages/sign-up/sign-up.component';
 import Footer from './components/footer/footer.component';
 import Header from './components/header/header.component';
+import MainUserPage from './pages/main-user-page/main-user-page.component';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
@@ -15,7 +17,8 @@ class App extends React.Component {
     super();
 
     this.state = {
-      currentUser: null
+      currentUser: null,
+      NameofPerson: 'Anu'
     };
   }
 
@@ -35,6 +38,7 @@ class App extends React.Component {
           });
 
           console.log(this.state);
+          console.log('after fetch user');
         });
       }
 
@@ -47,13 +51,21 @@ class App extends React.Component {
   }
 
   render() {
+    const {currentUser} = this.state;
     return (
       <div className = 'app'>
         <Header currentUser = {this.state.currentUser}/>
           <Switch>
-            <Route exact path='/' component={HomePage} />
-            <Route exact path= '/signin' component={SignIn}/>
-            <Route exact path='/signup' component={SignUp} />
+            <Route exact path= '/'>
+              {currentUser?<Redirect to="/mainuserPage" /> :  <HomePage/>}
+            </Route>
+            <Route exact path= '/signin'>
+              {currentUser?<Redirect to="/mainuserPage" /> :  <SignIn/>}
+            </Route>
+            <Route exact path= '/signup'>
+              {currentUser?<Redirect to="/mainuserPage" /> :  <SignUp/>}
+            </Route>
+            <Route exact path='/mainuserPage'  render={() => (<MainUserPage  currentUser = {this.state.currentUser} NameofPerson = {this.state.NameofPerson}/>)}/>
           </Switch>
         <Footer/>
     </div>

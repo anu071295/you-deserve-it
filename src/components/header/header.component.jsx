@@ -8,10 +8,11 @@ import  { auth } from '../../firebase/firebase.utils';
 
 const Header = ({currentUser}) =>(
     <div className = 'pageHeader'>
-        <h1>You Deserve it</h1>
+        <div className = 'youdeserveit'> <p>You Deserve it</p> </div>
+        
         <div className = 'signInSignUpLinks'>
             {currentUser?(<div>
-                <Link className='link' to='/' onClick = {()=>auth.signOut()}>
+                <Link className='link' to= '/' onClick = {()=>auth.signOut()}>
                     SIGN OUT
                 </Link>
             </div>):(<div>

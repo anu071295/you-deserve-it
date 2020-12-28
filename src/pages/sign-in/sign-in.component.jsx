@@ -3,8 +3,7 @@ import React from 'react';
 import './sign-in.styles.scss';
 
 import { Link } from 'react-router-dom';
-
-
+import ReactDOM from 'react-dom'
 
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
@@ -15,21 +14,31 @@ class SignIn extends React.Component {
     super();
 
 
-
+    
     this.state = ({
       email : '',
-      password : ''
+      password : '',
     });
 
   }
 
-  handleSubmit = async event => {
-    event.preventDefault();
+  handleSubmit = () => {
     console.log('inside the handlesubmit method');
     const { email, password } = this.state;
-
+    
     try {
-      await auth.signInWithEmailAndPassword(email, password);
+      auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
+          const element = <h4>Error message</h4>;
+          ReactDOM.render(element, document.getElementById('pageErrorMessage'));
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+      });
       this.setState({ email: '', password: '' });
     } catch (error) {
       console.log(error);
@@ -43,11 +52,12 @@ class SignIn extends React.Component {
   };
 
   render() {
-    const {email, password} = this.state;
+    const { email, password } = this.state;
     return (
       <div className='sign-in'>
         <h2 className = 'header'>I already have an account</h2>
         <h2 className = 'sideHeader'>Sign In</h2>
+        <div id = 'pageErrorMessage'></div>
         <div className='group'>
           <input type='email'
               name='email'
@@ -68,8 +78,9 @@ class SignIn extends React.Component {
         </div>
         <div className='pageAction'>
           <Link className='pageActionLink' to='/'>Cancel</Link>
-          <button className = 'pageActionButton' type = 'submit' onClick = {this.handleSubmit}>Sign In</button> &nbsp;&nbsp;
-          <button className = 'pageActionButton' onClick = {signInWithGoogle}>Sign In With Google</button>
+          <button className = 'pageActionButton' onClick = {()=>this.handleSubmit()}>Sign In</button>
+           &nbsp;&nbsp;
+          <button className = 'pageActionButton' onClick = {()=>signInWithGoogle()}>Sign In With Google</button>
         </div>
       </div>
     );

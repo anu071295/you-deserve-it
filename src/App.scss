@@ -29,7 +29,11 @@
   }
 }
 .app {
-  @include background('/assets/backgrounImage.JPG');
+  background: linear-gradient(
+    to left,
+    rgb(193, 205, 236) 0%,
+    rgb(245, 245, 247) 100%
+  );
 }
 
 .App-header {
