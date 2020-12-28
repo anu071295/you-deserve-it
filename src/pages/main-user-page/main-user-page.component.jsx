@@ -11,7 +11,8 @@ class MainUserPage extends React.Component{
         super(props);
     
         this.state = ({
-            currentUser : null
+            currentUser : null,
+            categoryData : null
         });
         
         console.log(this.props.currentUser);
@@ -19,7 +20,7 @@ class MainUserPage extends React.Component{
         
       }
 
-      fetchRewards = (currentUserId) => {
+      fetchRewards = (currentUserId,category) => {
         const db = firebase.firestore();
         const category1 = db.collection("cad").doc('3sm2FEkAwNCqknkWSCAa');
         db.collection("cad").doc("3sm2FEkAwNCqknkWSCAa").onSnapshot(function(doc) {
@@ -27,7 +28,7 @@ class MainUserPage extends React.Component{
         });
 
         // Create a reference to the cities collection
-        var citiesRef = db.collection("category 1");
+        var citiesRef = db.collection(category);
 
         // Create a query against the collection.
         var query = citiesRef.where("UserId", "==", currentUserId);
@@ -35,6 +36,7 @@ class MainUserPage extends React.Component{
             querySnapshot.forEach(function(doc) {
                 // doc.data() is never undefined for query doc snapshots
                 console.log(doc.id, " => ", doc.data());
+                
             });
         })
         console.log('query ' + query.get().then);
@@ -49,8 +51,15 @@ class MainUserPage extends React.Component{
                 {this.props.currentUser? (
                     <div className = 'mainDivCurrentUser'>
                         HELLO {this.props.currentUser.displayName} !!
+                        <div className = 'categoryDiv' id = 'category1' onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 1')}>Category1
                         
-                        <div className = 'categoryDiv'>Category1</div>
+                        </div>
+                        <div className = 'categoryDiv' onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 2')}>Category2
+                        
+                        </div>
+                        <div className = 'categoryDiv' onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 3')}>Category3
+                        
+                        </div>
                     </div>
                     ) : (
                     <div>Hello Guest</div>
