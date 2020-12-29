@@ -13,12 +13,11 @@ import MainUserPage from './pages/main-user-page/main-user-page.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       currentUser: null,
-      NameofPerson: 'Anu'
     };
   }
 
@@ -50,6 +49,8 @@ class App extends React.Component {
     this.unsubscribeFromAuth();
   }
 
+  
+
   render() {
     const {currentUser} = this.state;
     return (
@@ -65,7 +66,7 @@ class App extends React.Component {
             <Route exact path= '/signup'>
               {currentUser?<Redirect to="/mainuserPage" /> :  <SignUp/>}
             </Route>
-            <Route exact path='/mainuserPage'  render={() => (<MainUserPage  currentUser = {this.state.currentUser} NameofPerson = {this.state.NameofPerson}/>)}/>
+            <Route exact path='/mainuserPage'  render={() => (<MainUserPage  currentUser = {this.state.currentUser}/>)}/>
           </Switch>
         <Footer/>
     </div>

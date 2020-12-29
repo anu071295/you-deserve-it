@@ -14,13 +14,34 @@
         padding-top: 1%;
         padding-bottom: 1%;
         margin: 20px;
-        cursor: pointer;
         -moz-osx-font-smoothing: grayscale;
         backface-visibility: hidden;
         transform: translateZ(0);
         transition: transform 0.25s ease-out;
+        
+        .outerShell{
+            flex-direction: row;
+        }
+        .eachButton {
+            min-width: 165px;
+            width: auto;
+            height: 50px;
+            letter-spacing: 0.5px;
+            line-height: 50px;
+            padding: 0 15px 0 15px;
+            font-size: 15px;
+            background-color: rgb(26, 26, 70);
+            color: white;
+            font-weight: bolder;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            
+            &:hover {
+                transform: scale(1.05);
+            }
+          
+          }
     }
-    .categoryDiv:hover {
-        transform: scale(1.05);
-      }
+    
 }
