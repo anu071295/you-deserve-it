@@ -47,9 +47,9 @@ class MainUserPage extends React.Component{
                 {this.props.currentUser? (
                     <div className = 'mainDivCurrentUser'>
                         HELLO {this.props.currentUser.displayName} !!
-                        <div className = 'categoryDiv'  onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 1','category1')}>
+                        <div className = 'categoryDiv'>
                             <div className = 'outerShell'>Category1
-                                <button className = 'eachButton'>Claim</button>&nbsp;&nbsp;
+                                <button className = 'eachButton' onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 1','category1')}>I did it</button>&nbsp;&nbsp;
                                 <button className = 'eachButton'>Add to List of things I want</button>
                             </div>
                         <div id = 'category1'>
@@ -60,9 +60,9 @@ class MainUserPage extends React.Component{
                         
                         </div>
                         </div>
-                        <div className = 'categoryDiv' onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 2','category2')}>
+                        <div className = 'categoryDiv'>
                         <div className = 'outerShell'>Category2
-                                <button className = 'eachButton'>Claim</button>&nbsp;&nbsp;
+                                <button className = 'eachButton' onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 2','category2')}>I did it</button>&nbsp;&nbsp;
                                 <button className = 'eachButton'>Add to List of things I want</button>
                             </div>
                         <div id = 'category2'>
@@ -71,10 +71,10 @@ class MainUserPage extends React.Component{
                         ))):(<p></p>)}
                         </div>
                         </div>
-                        <div className = 'categoryDiv' onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 3','category3')}>
+                        <div className = 'categoryDiv'>
                         <div className = 'outerShell'>Category3
-                            <button className = 'eachButton'>Claim</button>&nbsp;&nbsp;
-                                <button className = 'eachButton'>Add to List of things I want</button></div>
+                            <button className = 'eachButton'  onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 3','category3')}>I did it</button>&nbsp;&nbsp;
+                            <button className = 'eachButton'>Add to List of things I want</button></div>
 
                         <div id = 'category3'>
                         {category === 'category3'?(categoryData.map((data, index) => (

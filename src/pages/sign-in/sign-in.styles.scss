@@ -18,6 +18,9 @@ $main-color: black;
   .sideHeader{
     font-size: 20px;
   }
+  .pageErrorMessage{
+    color : red !important
+  }
 }
 
 .group {
@@ -64,5 +67,9 @@ $main-color: black;
       @include shrinkLabel();
     }
   }
+}
+
+.pageErrorMessage{
+  color : red
 }
   

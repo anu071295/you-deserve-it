@@ -3,7 +3,6 @@ import React from 'react';
 import './sign-in.styles.scss';
 
 import { Link } from 'react-router-dom';
-import ReactDOM from 'react-dom'
 
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
@@ -18,6 +17,7 @@ class SignIn extends React.Component {
     this.state = ({
       email : '',
       password : '',
+      errorMessage : ''
     });
 
   }
@@ -26,14 +26,17 @@ class SignIn extends React.Component {
     console.log('inside the handlesubmit method');
     const { email, password } = this.state;
     
+    
     try {
-      auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+      auth.signInWithEmailAndPassword(email, password).catch(error =>{
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
+        var messageToDisplay = '';
         if (errorCode === 'auth/wrong-password') {
-          const element = <h4>Error message</h4>;
-          ReactDOM.render(element, document.getElementById('pageErrorMessage'));
+          messageToDisplay = 'No No';
+          console.log('messageToDisplay line 38' + messageToDisplay);
+          this.setState({errorMessage : 'You need the right password dumb ass'});
         } else {
           alert(errorMessage);
         }
@@ -52,12 +55,12 @@ class SignIn extends React.Component {
   };
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, errorMessage } = this.state;
     return (
       <div className='sign-in'>
         <h2 className = 'header'>I already have an account</h2>
         <h2 className = 'sideHeader'>Sign In</h2>
-        <div id = 'pageErrorMessage'></div>
+        <div className = 'pageErrorMessage'>{errorMessage}</div>
         <div className='group'>
           <input type='email'
               name='email'
