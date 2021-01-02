@@ -21,6 +21,11 @@ $main-color: black;
   .pageErrorMessage{
     color : red !important
   }
+  .signUpinError{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .group {

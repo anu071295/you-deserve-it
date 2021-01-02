@@ -17,7 +17,8 @@ class SignIn extends React.Component {
     this.state = ({
       email : '',
       password : '',
-      errorMessage : ''
+      errorMessage : '',
+      errorLink : ''
     });
 
   }
@@ -32,12 +33,11 @@ class SignIn extends React.Component {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        var messageToDisplay = '';
         if (errorCode === 'auth/wrong-password') {
-          messageToDisplay = 'No No';
-          console.log('messageToDisplay line 38' + messageToDisplay);
           this.setState({errorMessage : 'You need the right password dumb ass'});
-        } else {
+        } else if(errorCode === 'auth/user-not-found'){
+          this.setState({errorMessage : 'User does not exist. Please check email or create a new account' , errorLink : 'Sign Up'});
+        }else{
           alert(errorMessage);
         }
         console.log(error);
@@ -55,12 +55,12 @@ class SignIn extends React.Component {
   };
 
   render() {
-    const { email, password, errorMessage } = this.state;
+    const { email, password, errorMessage, errorLink } = this.state;
     return (
       <div className='sign-in'>
         <h2 className = 'header'>I already have an account</h2>
         <h2 className = 'sideHeader'>Sign In</h2>
-        <div className = 'pageErrorMessage'>{errorMessage}</div>
+        <div className = 'pageErrorMessage'>{errorMessage} <br/> <Link className = 'signUpinError' to = '/signup'>{errorLink}</Link></div>
         <div className='group'>
           <input type='email'
               name='email'

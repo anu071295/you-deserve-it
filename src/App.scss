@@ -6,13 +6,6 @@
 .app{
   font-family: 'Sniglet', cursive;
   color: rgb(26, 26, 70);
-  background-size: cover;
-  position:absolute;
-  left:0;
-  bottom:0;
-  right:0;
-  top:0;
-  
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -28,13 +21,7 @@
       repeat: $repeat;
   }
 }
-.app {
-  background: linear-gradient(
-    to left,
-    rgb(193, 205, 236) 0%,
-    rgb(245, 245, 247) 100%
-  );
-}
+
 
 .App-header {
   min-height: 100vh;

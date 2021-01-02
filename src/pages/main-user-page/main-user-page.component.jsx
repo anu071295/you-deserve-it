@@ -40,6 +40,13 @@ class MainUserPage extends React.Component{
         
       };
 
+      resetState = () => {
+        this.setState({
+            categoryData: '',
+            category : ''
+          });
+      }
+
       render() {
           const {categoryData,category} = this.state
         return (
@@ -48,37 +55,55 @@ class MainUserPage extends React.Component{
                     <div className = 'mainDivCurrentUser'>
                         HELLO {this.props.currentUser.displayName} !!
                         <div className = 'categoryDiv'>
-                            <div className = 'outerShell'>Category1
-                                <button className = 'eachButton' onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 1','category1')}>I did it</button>&nbsp;&nbsp;
-                                <button className = 'eachButton'>Add to List of things I want</button>
+                            <div className = 'outerShell'>
+                                <div className = 'titleDiv'> 
+                                    Category 1
+                                </div>
+                            <div className = 'categoryButtons'>
+                                    <button className = 'eachButton' onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 1','category1')}>I did it</button>&nbsp;&nbsp;
+                                    <button className = 'eachButton'>Add to List of things I want</button>
+                                    {category === 'category1'?(<button onClick = {()=>this.resetState()} className = 'closeLink'>close</button>):(<div></div>)}
+                                </div>
                             </div>
                         <div id = 'category1'>
                         
                         {category === 'category1'?(categoryData.map((data, index) => (
-                            <p key={index}>Hello, {data.Name} from {data.Price}!</p>
+                            <p key={index}>{index +1} {data.Name} - {data.Price} - {data.Shop} - <a href = {data.Link} >{data.Link}</a></p>
                         ))):(<p></p>)}
                         
                         </div>
                         </div>
                         <div className = 'categoryDiv'>
-                        <div className = 'outerShell'>Category2
+                        <div className = 'outerShell'>
+                                <div className = 'titleDiv'> 
+                                    Category 2
+                                </div>
+                            <div className = 'categoryButtons'>
                                 <button className = 'eachButton' onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 2','category2')}>I did it</button>&nbsp;&nbsp;
                                 <button className = 'eachButton'>Add to List of things I want</button>
+                                {category === 'category2'?(<button onClick = {()=>this.resetState()} className = 'closeLink'>close</button>):(<div></div>)}
+                            </div>
                             </div>
                         <div id = 'category2'>
                         {category === 'category2'?(categoryData.map((data, index) => (
-                            <p key={index}>Hello, {data.Name} from {data.Price}!</p>
+                            <p key={index}>{index +1} {data.Name} - {data.Price} - {data.Shop} - <a href = {data.Link} >{data.Link}</a></p>
                         ))):(<p></p>)}
                         </div>
                         </div>
                         <div className = 'categoryDiv'>
-                        <div className = 'outerShell'>Category3
-                            <button className = 'eachButton'  onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 3','category3')}>I did it</button>&nbsp;&nbsp;
-                            <button className = 'eachButton'>Add to List of things I want</button></div>
-
+                        <div className = 'outerShell'>
+                                <div className = 'titleDiv'> 
+                                    Category 3
+                                </div>
+                            <div className = 'categoryButtons'>
+                                <button className = 'eachButton'  onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 3','category3')}>I did it</button>&nbsp;&nbsp;
+                                <button className = 'eachButton'>Add to List of things I want</button>
+                                {category === 'category3'?(<button onClick = {()=>this.resetState()} className = 'closeLink'>close</button>):(<div></div>)}
+                            </div>
+                        </div>
                         <div id = 'category3'>
                         {category === 'category3'?(categoryData.map((data, index) => (
-                            <p key={index}>Hello, {data.Name} from {data.Price}!</p>
+                            <p key={index}>{index +1} {data.Name} - {data.Price} - {data.Shop} - <a href = {data.Link} >{data.Link}</a></p>
                         ))):(<p></p>)}
                         </div>
                         </div>
