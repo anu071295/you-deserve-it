@@ -6,6 +6,8 @@ import 'firebase/auth';
 
 import './main-user-page.styles.scss';
 
+import  RewardsTable  from '../../components/rewards-table/rewards-table.component.jsx';
+
 class MainUserPage extends React.Component{
     
     constructor(props) {
@@ -48,7 +50,7 @@ class MainUserPage extends React.Component{
       }
 
       render() {
-          const {categoryData,category} = this.state
+          const {category} = this.state;
         return (
             <div>
                 {this.props.currentUser? (
@@ -58,18 +60,16 @@ class MainUserPage extends React.Component{
                             <div className = 'outerShell'>
                                 <div className = 'titleDiv'> 
                                     Category 1
+                                    {category === 'category1'?(<span onClick = {()=>this.resetState()} className = 'closeLink'>X</span>):(<div></div>)}
                                 </div>
                             <div className = 'categoryButtons'>
                                     <button className = 'eachButton' onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 1','category1')}>I did it</button>&nbsp;&nbsp;
                                     <button className = 'eachButton'>Add to List of things I want</button>
-                                    {category === 'category1'?(<button onClick = {()=>this.resetState()} className = 'closeLink'>close</button>):(<div></div>)}
+                                    
                                 </div>
                             </div>
                         <div id = 'category1'>
-                        
-                        {category === 'category1'?(categoryData.map((data, index) => (
-                            <p key={index}>{index +1} {data.Name} - {data.Price} - {data.Shop} - <a href = {data.Link} >{data.Link}</a></p>
-                        ))):(<p></p>)}
+                        {category === 'category1'?(<RewardsTable categoryData = {this.state.categoryData}/>):(<p></p>)}
                         
                         </div>
                         </div>
@@ -77,34 +77,34 @@ class MainUserPage extends React.Component{
                         <div className = 'outerShell'>
                                 <div className = 'titleDiv'> 
                                     Category 2
+                                
+                                {category === 'category2'?(<span onClick = {()=>this.resetState()} className = 'closeLink'>X</span>):(<div></div>)}
                                 </div>
                             <div className = 'categoryButtons'>
                                 <button className = 'eachButton' onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 2','category2')}>I did it</button>&nbsp;&nbsp;
                                 <button className = 'eachButton'>Add to List of things I want</button>
-                                {category === 'category2'?(<button onClick = {()=>this.resetState()} className = 'closeLink'>close</button>):(<div></div>)}
+                                
                             </div>
                             </div>
                         <div id = 'category2'>
-                        {category === 'category2'?(categoryData.map((data, index) => (
-                            <p key={index}>{index +1} {data.Name} - {data.Price} - {data.Shop} - <a href = {data.Link} >{data.Link}</a></p>
-                        ))):(<p></p>)}
+                        {category === 'category2'?(<RewardsTable categoryData = {this.state.categoryData}/>):(<p></p>)}
                         </div>
                         </div>
                         <div className = 'categoryDiv'>
                         <div className = 'outerShell'>
                                 <div className = 'titleDiv'> 
                                     Category 3
+                                
+                                {category === 'category3'?(<span onClick = {()=>this.resetState()} className = 'closeLink'>X</span>):(<div></div>)}
                                 </div>
                             <div className = 'categoryButtons'>
                                 <button className = 'eachButton'  onClick = {()=>this.fetchRewards(this.props.currentUser.id,'category 3','category3')}>I did it</button>&nbsp;&nbsp;
                                 <button className = 'eachButton'>Add to List of things I want</button>
-                                {category === 'category3'?(<button onClick = {()=>this.resetState()} className = 'closeLink'>close</button>):(<div></div>)}
+                                
                             </div>
                         </div>
                         <div id = 'category3'>
-                        {category === 'category3'?(categoryData.map((data, index) => (
-                            <p key={index}>{index +1} {data.Name} - {data.Price} - {data.Shop} - <a href = {data.Link} >{data.Link}</a></p>
-                        ))):(<p></p>)}
+                        {category === 'category3'?(<RewardsTable categoryData = {this.state.categoryData}/>):(<p></p>)}
                         </div>
                         </div>
                     </div>
