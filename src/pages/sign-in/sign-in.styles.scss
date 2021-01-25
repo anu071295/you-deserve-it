@@ -1,5 +1,5 @@
-$sub-color: grey;
-$main-color: black;
+$sub-color: rgb(26, 26, 70);
+$main-color: rgb(26, 26, 70);
 
 @mixin shrinkLabel {
   top: -14px;
@@ -7,11 +7,30 @@ $main-color: black;
   color: $main-color;
 }
 
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $color: $default) {
+  box-shadow: $x-axis $y-axis $blur $color;
+}
+
 .sign-in {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 5%;
+  margin: auto;
+  position: absolute;
+  padding-top: 5%;
+  top: 15%; left: 25%; bottom: 15%; right: 25%;
+  @include box-shadow(5px, 5px, 5px, #333);
+
+  background: rgba(177, 146, 189, 0.99);
+  border-radius: 98px;
   .header{
     font-size: 30px;
   }
@@ -57,6 +76,7 @@ $main-color: black;
     letter-spacing: 0.3em;
   }
 
+  
   .form-input-label {
     color: $sub-color;
     font-size: 16px;
@@ -77,4 +97,5 @@ $main-color: black;
 .pageErrorMessage{
   color : red
 }
+
   

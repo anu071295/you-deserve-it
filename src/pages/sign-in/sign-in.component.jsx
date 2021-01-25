@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
+import { FcGoogle } from "react-icons/fc";
+
 
 class SignIn extends React.Component {
   
@@ -80,11 +82,11 @@ class SignIn extends React.Component {
           <label className= 'form-input-label'>Password</label>
         </div>
         <div className='pageAction'>
-          <Link className='pageActionLink' to='/'>Cancel</Link>
           <button className = 'pageActionButton' onClick = {()=>this.handleSubmit()}>Sign In</button>
            &nbsp;&nbsp;
-          <button className = 'pageActionButton' onClick = {()=>signInWithGoogle()}>Sign In With Google</button>
+          <button className = 'pageActionButton' onClick = {()=>signInWithGoogle()}><span className = 'GoogleIcon'><FcGoogle size={32}/></span> Sign In With Google</button><br/>
         </div>
+        <Link className='pageActionLink' to='/'>Cancel</Link>
       </div>
     );
   }

@@ -1,44 +1,6 @@
+ 
 .mainDivCurrentUser{
-    display: flex;
-    flex-direction: column;
-    font-weight: 100;
-    justify-content: space-between;
-
-    .categoryDiv{
-        background-color: rgb(193, 205, 236);
-        border: 1px solid rgb(193, 205, 236);
-        margin: 20px;
-        display: flex;
-        flex-direction: column;
-
-        .titleDiv{
-            display: flex;
-            font-weight: 100;
-            justify-content: space-between;
-        }
-
-        .categoryButtons{
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .eachButton {
-            
-            background-color: rgb(26, 26, 70);
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 15px;
-            margin-left: auto;
-            
-            &:hover {
-                transform: scale(1.05);
-            }
-          
-          }
+    
 
           .closeLink{
             cursor: pointer;
@@ -46,6 +8,16 @@
             text-align: right;
             Padding : 10px;
           }
-    }
+
+}
+
+.sideMenu{
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    left: 0px;
+    top: 0px;
     
+
+    background: rgba(177, 146, 189, 0.75);
 }

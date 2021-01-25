@@ -6,7 +6,6 @@ import './App.scss';
 import HomePage from './pages/homepage/homepage.component';
 import SignIn from './pages/sign-in/sign-in.component';
 import SignUp from './pages/sign-up/sign-up.component';
-import Footer from './components/footer/footer.component';
 import Header from './components/header/header.component';
 import MainUserPage from './pages/main-user-page/main-user-page.component';
 
@@ -27,7 +26,7 @@ class App extends React.Component {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
-
+        
         userRef.onSnapshot(snapShot => {
           this.setState({
             currentUser: {
@@ -37,10 +36,9 @@ class App extends React.Component {
           });
 
           console.log(this.state);
-          console.log('after fetch user');
+          console.log('after fetch user ' + snapShot.id);
         });
       }
-
       this.setState({ currentUser: userAuth });
     });
   }
@@ -68,7 +66,6 @@ class App extends React.Component {
             </Route>
             <Route exact path='/mainuserPage'  render={() => (<MainUserPage  currentUser = {this.state.currentUser}/>)}/>
           </Switch>
-        <Footer/>
     </div>
     );
   }

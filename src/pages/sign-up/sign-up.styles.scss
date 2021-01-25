@@ -1,10 +1,49 @@
-$sub-color: grey;
-$main-color: black;
+$sub-color: rgb(26, 26, 70);
+$main-color: rgb(26, 26, 70);
 
 @mixin shrinkLabel {
   top: -14px;
   font-size: 12px;
   color: $main-color;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $color: $default) {
+  box-shadow: $x-axis $y-axis $blur $color;
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  position: absolute;
+  padding-top: 5%;
+  top: 15%; left: 25%; bottom: 15%; right: 25%;
+  @include box-shadow(5px, 5px, 5px, #333);
+
+  background: rgba(177, 146, 189, 0.99);
+  border-radius: 98px;
+  .header{
+    font-size: 30px;
+  }
+  .sideHeader{
+    font-size: 20px;
+  }
+  .pageErrorMessage{
+    color : red !important
+  }
+  .signUpinError{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .mainHeader {
@@ -63,6 +102,7 @@ $main-color: black;
     padding-right: 20px;
     transition: 300ms ease all;
     font-family: 'Barlow Condensed', sans-serif;
+    
 
     &.shrink {
       @include shrinkLabel();
@@ -88,8 +128,9 @@ $main-color: black;
   justify-content: center;
 
   .pageActionLink {
-    padding: 10px 20px;
+    padding: 20px;
     font-size: 16px;
+    flex-direction: column;
   }
   .pageActionButton {
     min-width: 165px;
@@ -100,6 +141,7 @@ $main-color: black;
     padding: 0 35px 0 35px;
     font-size: 15px;
     background-color: rgb(26, 26, 70);
+    @include border-radius(10px);
     color: white;
     font-weight: bolder;
     border: none;

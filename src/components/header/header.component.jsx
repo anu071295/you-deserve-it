@@ -8,7 +8,7 @@ import  { auth } from '../../firebase/firebase.utils';
 
 const Header = ({currentUser}) =>(
     <div className = 'pageHeader'>
-        <div className = 'youdeserveit'> <p>You Deserve it</p> </div>
+        
         
         <div className = 'signInSignUpLinks'>
             {currentUser?(<div>
