@@ -3,7 +3,7 @@ import React from 'react';
 import graphicDesign from './Graphicdesignfrontpage1.PNG';
 import './homepage.styles.scss';
 import SignUp from '../../components/signIn-signUp/sign-up/sign-up.component';
-import SignIn from '../../components/signIn-signUp/sign-up/sign-up.component';
+import SignIn from '../../components/signIn-signUp/sign-in/sign-in.component';
 
 class HomePage extends React.Component{
     constructor(props){
