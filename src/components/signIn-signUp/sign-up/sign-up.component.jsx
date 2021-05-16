@@ -2,7 +2,7 @@ import React from 'react';
 
 import './sign-up.styles.scss';
 
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+import { auth, createUserProfileDocument } from '../../../firebase/firebase.utils';
 
 class SignUp extends React.Component {
     

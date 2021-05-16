@@ -5,7 +5,6 @@ import 'firebase/auth';
 
 import './main-user-page.styles.scss';
 
-import Category from '../../components/category/category.component';
 
 
 
@@ -32,15 +31,18 @@ class MainUserPage extends React.Component{
       render() {
         return (
             <>
-                <div className = 'mainContent'>
-                {this.props.currentUser? (
-                    <div className = 'mainDivCurrentUser'>
-                        <Category currentUser = {this.props.currentUser}/>
-                        </div>
-                    ) : (
-                    <div>Hello Guest</div>
-                )}
-                </div>
+                <div className = 'pageHeaderText'>
+                    <div className = 'mainTextOnMainPage'>
+                        <p><b>
+                            Welocome to Bliss-Bubble<br/>
+                            {this.props.currentUser.displayName}
+                        </b></p>
+                    </div>
+                    <div className = 'subTextOnMainPage'>
+                        <p>You are amazing</p>
+                    </div>
+                </div>  
+                
              </>
         );
       }

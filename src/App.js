@@ -4,8 +4,8 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import './App.scss';
 import HomePage from './pages/homepage/homepage.component';
-import Header from './components/header/header.component';
-import Footer from './components/footer/footer.component';
+import Header from './components/common/header/header.component';
+import Footer from './components/common/footer/footer.component';
 import MainUserPage from './pages/main-user-page/main-user-page.component';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';

@@ -4,7 +4,7 @@ import './header.styles.scss';
 
 import { Link } from 'react-router-dom';
 
-import  { auth } from '../../firebase/firebase.utils';
+import  { auth } from '../../../firebase/firebase.utils';
 
 class Header extends React.Component{
     constructor(props){

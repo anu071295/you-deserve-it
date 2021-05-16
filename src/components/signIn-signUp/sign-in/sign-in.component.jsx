@@ -4,7 +4,7 @@ import './sign-in.styles.scss';
 
 import { Link } from 'react-router-dom';
 
-import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth, signInWithGoogle } from '../../../firebase/firebase.utils';
 
 import { FcGoogle } from "react-icons/fc";
 import { RiCloseCircleFill } from 'react-icons/ri';
