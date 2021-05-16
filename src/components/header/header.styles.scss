@@ -1,7 +1,8 @@
 .pageHeader {
   position: absolute;
   width: 100%;
-  top: 22px;
+  height: 6.5%;
+  background: linear-gradient(90deg, rgba(10,177,164,1) 0%, rgba(83,214,203,1) 35%, rgba(183,243,255,1) 100%);
 
   .youdeserveit{
     font-size: 20px;
@@ -13,10 +14,25 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    
 
     .link {
-      padding: 10px 15px;
+      padding: 15px 15px;
       cursor: pointer;
+      color: rgb(18, 29, 25);
     }
+  }
+
+  button {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  .signInLink{
+    padding: 1%;
   }
 }

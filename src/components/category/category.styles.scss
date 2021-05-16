@@ -10,7 +10,6 @@
   }
 
 .mainDivCurrentUser{
-    font-weight: 100;
     
 
     .categoryDiv{
@@ -20,12 +19,11 @@
         left: 239px;
 
 
-        background: #B192BD;
+        background:#f6e0ff;
         border-radius: 28px;
         @include box-shadow(1px, 1px, 1px, #333);
 
-
-        margin: 50px;
+        
 
         .titleDiv{
             display: flex;

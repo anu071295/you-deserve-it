@@ -6,26 +6,30 @@ import { Link } from 'react-router-dom';
 
 import  { auth } from '../../firebase/firebase.utils';
 
-const Header = ({currentUser}) =>(
-    <div className = 'pageHeader'>
+class Header extends React.Component{
+    constructor(props){
+        super(props);
+        console.log(this.props.currentUser);
+        console.log(this.props.isSignInOpen);
+    }
+    render(){
+        return(
+            <div className = 'pageHeader'>
         
         
-        <div className = 'signInSignUpLinks'>
-            {currentUser?(<div>
-                <Link className='link' to= '/' onClick = {()=>auth.signOut()}>
-                    SIGN OUT
-                </Link>
-            </div>):(<div>
-                <Link className='link' to='/signin'>
-                    SIGN IN
-                </Link>
-                <Link className='link' to='/signup'>
-                    SIGN UP
-                </Link>
-            </div>)}
-            
-        </div>
-    </div>
-);
+                <div className = 'signInSignUpLinks'>
+                    {this.props.currentUser?(<div>
+                        <Link className='link' to= '/homepage' onClick = {()=>auth.signOut()}>
+                            SIGN OUT
+                        </Link>
+                    </div>):(<div className='signInLink'>
+                        <button onClick = {() => this.props.signInOpenPopup()}>SIGN IN</button>
+                    </div>)}
+                    
+                </div>
+            </div>
+        )
+    }
+}
 
 export default Header;

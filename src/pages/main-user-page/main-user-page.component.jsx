@@ -31,10 +31,8 @@ class MainUserPage extends React.Component{
 
       render() {
         return (
-            <div>
-                <div className = 'sideMenu'>
-                    YOU DERSERVE IT
-                </div>
+            <>
+                <div className = 'mainContent'>
                 {this.props.currentUser? (
                     <div className = 'mainDivCurrentUser'>
                         <Category currentUser = {this.props.currentUser}/>
@@ -42,7 +40,8 @@ class MainUserPage extends React.Component{
                     ) : (
                     <div>Hello Guest</div>
                 )}
-             </div>
+                </div>
+             </>
         );
       }
 }

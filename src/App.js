@@ -4,9 +4,8 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import './App.scss';
 import HomePage from './pages/homepage/homepage.component';
-import SignIn from './pages/sign-in/sign-in.component';
-import SignUp from './pages/sign-up/sign-up.component';
 import Header from './components/header/header.component';
+import Footer from './components/footer/footer.component';
 import MainUserPage from './pages/main-user-page/main-user-page.component';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
@@ -17,6 +16,7 @@ class App extends React.Component {
 
     this.state = {
       currentUser: null,
+      isSignInOpen : false
     };
   }
 
@@ -47,25 +47,40 @@ class App extends React.Component {
     this.unsubscribeFromAuth();
   }
 
-  
+  signInClosePopup = () => {
+    this.setState({isSignInOpen : false});
+  }
+
+  signInOpenPopup = () => {
+    this.setState({isSignInOpen : true});
+  }
 
   render() {
     const {currentUser} = this.state;
     return (
       <div className = 'app'>
-        <Header currentUser = {this.state.currentUser}/>
+        <Header currentUser = {this.state.currentUser} isSignInOpen = {this.state.isSignInOpen} signInOpenPopup = {this.signInOpenPopup}/>
           <Switch>
             <Route exact path= '/'>
-              {currentUser?<Redirect to="/mainuserPage" /> :  <HomePage/>}
+              {currentUser?<Redirect to="/mainuserPage" /> : <Redirect to="/homepage" />}
             </Route>
-            <Route exact path= '/signin'>
-              {currentUser?<Redirect to="/mainuserPage" /> :  <SignIn/>}
-            </Route>
-            <Route exact path= '/signup'>
-              {currentUser?<Redirect to="/mainuserPage" /> :  <SignUp/>}
-            </Route>
-            <Route exact path='/mainuserPage'  render={() => (<MainUserPage  currentUser = {this.state.currentUser}/>)}/>
           </Switch>
+          <Switch>
+            <Route exact path= '/homepage'>
+              {currentUser?<Redirect to="/mainuserPage" /> : <Redirect to="/homepage" />}
+            </Route>
+          </Switch>
+          <Switch>
+            <Route exact path= '/mainuserPage'>
+              {currentUser?<Redirect to="/mainuserPage" /> : <Redirect to="/homepage" />}
+            </Route>
+          </Switch>
+          <Switch>
+            <Route exact path='/mainuserPage'  render={() => (<MainUserPage  currentUser = {this.state.currentUser} />)}/>
+            <Route exact path='/homepage'  render={() => (<HomePage isSignInOpen = {this.state.isSignInOpen} signInClosePopup = {this.signInClosePopup}/>)}/>
+          </Switch>
+          <br/><br/>
+          <Footer/>
     </div>
     );
   }

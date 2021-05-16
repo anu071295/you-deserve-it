@@ -19,9 +19,9 @@ class RewardsTable extends React.Component{
         if(!this.props.isOpen) return null
         
     return(
-        <div>
+        <div className = 'popupStyle'>
             {this.props.isOpen?( <div className = 'table-main-div'>
-                <RiCloseCircleFill onClick = {() => this.props.colsePopUp()} className = 'closeIcon'/>
+                <RiCloseCircleFill size = {32} onClick = {() => this.props.colsePopUp()} className = 'closeIcon'/>
                 <table>
                     <tbody>
                         <tr>
@@ -37,8 +37,8 @@ class RewardsTable extends React.Component{
                             <td>{data.Name}</td>
                             <td>{data.Price}</td>
                             <td>{data.Shop}</td>
-                            <td>{data.Link ?(<a href = {data.Link}>Go To Website</a>):(<div>No Data</div>)}</td>
-                            <td><button>Claim</button></td>
+                            <td>{data.Link ?(<a href = {data.Link} rel="noreferrer" target="_blank">Go To Website</a>):(<div>No Data</div>)}</td>
+                            <td><button className = 'pageActionButton'>Claim</button></td>
                         </tr>
                         ))}
                 </tbody>

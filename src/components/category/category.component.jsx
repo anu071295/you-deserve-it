@@ -7,7 +7,6 @@ import RewardsTable from '../rewards-table/rewards-table.component.jsx';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-import { FiPlusCircle } from "react-icons/fi";
 
 class Category extends React.Component{
     constructor(props){
@@ -82,8 +81,8 @@ class Category extends React.Component{
     render(){
         const {categoryName,categoryData} = this.state;
         return(
+            <>
             <div>
-                
                 {categoryName.map((data,index) => (
                 <div key = {index} className='mainDivCurrentUser'>
                     <div className = 'categoryDiv'>
@@ -97,8 +96,11 @@ class Category extends React.Component{
                 </div>
                 
             ))}
-            <RewardsTable isOpen = {this.state.isOpen} filteredCategoryData = {this.state.filteredCategoryData} colsePopUp = {this.colsePopUp}/>
+            
             </div>
+
+            <RewardsTable isOpen = {this.state.isOpen} filteredCategoryData = {this.state.filteredCategoryData} colsePopUp = {this.colsePopUp}/>
+            </>
         )
     }
 }
